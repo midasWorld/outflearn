@@ -1,4 +1,4 @@
-package com.example.outflearn;
+package com.midas.outflearn;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

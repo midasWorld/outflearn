@@ -1,4 +1,4 @@
-package com.example.outflearn.controller;
+package com.midas.outflearn.controller;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;

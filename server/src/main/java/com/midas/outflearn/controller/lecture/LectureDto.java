@@ -1,6 +1,6 @@
-package com.example.outflearn.controller.lecture;
+package com.midas.outflearn.controller.lecture;
 
-import com.example.outflearn.model.lecture.Lecture;
+import com.midas.outflearn.model.lecture.Lecture;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 

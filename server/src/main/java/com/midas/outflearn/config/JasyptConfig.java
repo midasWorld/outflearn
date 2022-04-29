@@ -1,4 +1,4 @@
-package com.example.outflearn.config;
+package com.midas.outflearn.config;
 
 import org.jasypt.encryption.StringEncryptor;
 import org.jasypt.encryption.pbe.PooledPBEStringEncryptor;

@@ -1,4 +1,4 @@
-package com.example.outflearn.util;
+package com.midas.outflearn.util;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;

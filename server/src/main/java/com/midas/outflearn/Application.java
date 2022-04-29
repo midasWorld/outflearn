@@ -1,4 +1,4 @@
-package com.example.outflearn;
+package com.midas.outflearn;
 
 import com.ulisesbocchio.jasyptspringboot.annotation.EnableEncryptableProperties;
 import org.springframework.boot.SpringApplication;

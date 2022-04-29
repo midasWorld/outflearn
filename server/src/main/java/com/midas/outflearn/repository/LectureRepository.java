@@ -1,6 +1,6 @@
-package com.example.outflearn.repository;
+package com.midas.outflearn.repository;
 
-import com.example.outflearn.model.lecture.Lecture;
+import com.midas.outflearn.model.lecture.Lecture;
 
 import java.util.List;
 

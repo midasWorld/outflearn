@@ -1,4 +1,4 @@
-package com.example.outflearn.model.lecture;
+package com.midas.outflearn.model.lecture;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
