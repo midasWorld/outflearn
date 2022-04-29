@@ -8,8 +8,13 @@ spring:
         web-allow-others: true
       path: /h2-console
   datasource:
-    driver-class-name: org.h2.Driver
-    url: jdbc:h2:mem:testdb
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ENC(J0Tyom6dkocZD98KM/2Wd0xA6EYhd7ssia2t3suuQ/DKShjjipLWai3Exzzcrl0K)
+    username: ENC(i8IEdsxU88goETdg0407Rw==)
+    password: ENC(kcqA7yHGmM8B6azdo9Fju9WJZMtBBYOu)
+  sql:
+    init:
+      mode: always
 
 jasypt:
   encryptor:
