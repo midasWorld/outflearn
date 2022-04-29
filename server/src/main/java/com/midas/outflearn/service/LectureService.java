@@ -18,4 +18,8 @@ public class LectureService {
     public List<Lecture> findAll() {
         return lectureRepository.findAll();
     }
+
+    public List<Lecture> findByName(String name) {
+        return lectureRepository.findByName(name);
+    }
 }

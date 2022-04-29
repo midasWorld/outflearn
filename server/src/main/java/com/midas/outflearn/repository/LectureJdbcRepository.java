@@ -7,6 +7,7 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
+import java.util.Collections;
 import java.util.List;
 
 @Repository
@@ -21,6 +22,13 @@ public class LectureJdbcRepository implements LectureRepository {
     @Override
     public List<Lecture> findAll() {
         return jdbcTemplate.query("SELECT * FROM lectures", lectureRowMapper);
+    }
+
+    @Override
+    public List<Lecture> findByName(String name) {
+        return jdbcTemplate.query("SELECT * FROM lectures WHERE name LIKE :name",
+            Collections.singletonMap("name", "%" + name + "%"),
+            lectureRowMapper);
     }
 
     private final RowMapper<Lecture> lectureRowMapper = (resultSet, i) -> {

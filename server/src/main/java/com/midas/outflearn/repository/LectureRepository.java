@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface LectureRepository {
     List<Lecture> findAll();
+    List<Lecture> findByName(String name);
 }
