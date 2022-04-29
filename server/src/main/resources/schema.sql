@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS lectures CASCADE;
+
 -- 강의 데이터
 CREATE TABLE lectures
 (
