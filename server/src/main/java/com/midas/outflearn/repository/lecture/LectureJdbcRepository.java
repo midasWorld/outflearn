@@ -1,4 +1,4 @@
-package com.midas.outflearn.repository;
+package com.midas.outflearn.repository.lecture;
 
 import com.midas.outflearn.model.lecture.Lecture;
 import com.midas.outflearn.util.DateTimeUtils;

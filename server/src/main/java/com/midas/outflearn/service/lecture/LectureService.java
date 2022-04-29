@@ -1,7 +1,7 @@
-package com.midas.outflearn.service;
+package com.midas.outflearn.service.lecture;
 
 import com.midas.outflearn.model.lecture.Lecture;
-import com.midas.outflearn.repository.LectureRepository;
+import com.midas.outflearn.repository.lecture.LectureRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
