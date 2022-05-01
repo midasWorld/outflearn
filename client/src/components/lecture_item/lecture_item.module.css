@@ -1,0 +1,52 @@
+.container {
+  width: 250px;
+  padding: 0.3em;
+}
+
+.lecture {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid lightgray;
+  box-shadow: 3px 3px 5px 0px rgba(191, 191, 191, 0.53);
+  cursor: pointer;
+  transition: transform 250ms ease-in;
+}
+
+.lecture:hover {
+  transform: scale(1.02);
+}
+
+.thumbnail {
+  width: 100%;
+  height: 100%;
+}
+
+.metadata {
+  padding: 0.3em;
+}
+
+.name,
+.lecturer,
+.price {
+  margin: 0.3em 0;
+  font-weight: bold;
+}
+
+.name {
+  font-size: large;
+}
+
+.lecturer {
+  font-size: 0.8rem;
+  color: gray;
+}
+
+.price {
+  color: #155cbf;
+}
+
+.price::before {
+  content: "₩";
+}
