@@ -18,6 +18,8 @@
     <commons-lang3.version>3.12.0</commons-lang3.version>
     <guava.version>31.1-jre</guava.version>
     <jasypt.version>3.0.4</jasypt.version>
+    <aws.s3.sdk.version>1.12.172</aws.s3.sdk.version>
+    <common.io.version>2.11.0</common.io.version>
   </properties>
   <dependencies>
     <dependency>
@@ -64,6 +66,17 @@
       <artifactId>jasypt-spring-boot-starter</artifactId>
       <version>${jasypt.version}</version>
     </dependency>
+    <dependency>
+      <groupId>com.amazonaws</groupId>
+      <artifactId>aws-java-sdk-s3</artifactId>
+      <version>${aws.s3.sdk.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>${common.io.version}</version>
+    </dependency>
+
   </dependencies>
 
   <build>
