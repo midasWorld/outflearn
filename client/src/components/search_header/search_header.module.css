@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  height: 4.5rem;
+  padding: 0.5em 1em;
+}
+
+.logo {
+  margin-right: 1em;
+}
+
+.input {
+  flex-basis: 100%;
+  font-size: 1.2rem;
+  outline: 0;
+}
+
+.button {
+  background-color: darkgray;
+  padding: 0.5em 0.2em;
+  outline: 0;
+}
