@@ -19,3 +19,12 @@ spring:
 jasypt:
   encryptor:
     bean: jasyptStringEncryptor
+
+cloud:
+  aws:
+    s3:
+      region: ap-northeast-2
+      access-key: ENC(L2sO80100qPwBufFeI/YmbREZdhNk4AxYE9x/3AYXx0=)
+      secret-key: ENC(dL4B8aMA80c8CBdcJ0LkxSErgJEn1IYrFlJHOlwwBjvVWmoYvXsshUYRkRjPPu4P7EfYexXAs5E=)
+      url: https://s3.ap-northeast-2.amazonaws.com
+      bucket-name: midas-outflearn
