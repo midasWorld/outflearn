@@ -99,4 +99,66 @@ public class Lecture {
             .append("updatedAt", updatedAt)
             .toString();
     }
+
+    static public class Builder {
+        private Long lectureId;
+        private String name;
+        private String lecturer;
+        private long price;
+        private String thumbnail_image_url;
+        private LocalDateTime createdAt;
+        private LocalDateTime updatedAt;
+
+        public Builder() {
+        }
+
+        public Builder(Lecture lecture) {
+            this.lectureId = lecture.lectureId;
+            this.name = lecture.name;
+            this.lecturer = lecture.lecturer;
+            this.price = lecture.price;
+            this.thumbnail_image_url = lecture.thumbnail_image_url;
+            this.createdAt = lecture.createdAt;
+            this.updatedAt = lecture.updatedAt;
+        }
+
+        public Builder lectureId(Long lectureId) {
+            this.lectureId = lectureId;
+            return this;
+        }
+
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public Builder lecturer(String lecturer) {
+            this.lecturer = lecturer;
+            return this;
+        }
+
+        public Builder price(long price) {
+            this.price = price;
+            return this;
+        }
+
+        public Builder thumbnail_image_url(String thumbnail_image_url) {
+            this.thumbnail_image_url = thumbnail_image_url;
+            return this;
+        }
+
+        public Builder createdAt(LocalDateTime createdAt) {
+            this.createdAt = createdAt;
+            return this;
+        }
+
+        public Builder updatedAt(LocalDateTime updatedAt) {
+            this.updatedAt = updatedAt;
+            return this;
+        }
+
+        public Lecture build() {
+            return new Lecture(lectureId, name, lecturer, price, thumbnail_image_url, createdAt, updatedAt);
+        }
+    }
 }

@@ -5,14 +5,14 @@ DROP TABLE IF EXISTS vouchers CASCADE;
 -- 강의 데이터
 CREATE TABLE lectures
 (
-    lecutre_id BIGINT NOT NULL AUTO_INCREMENT,
+    lecture_id BIGINT NOT NULL AUTO_INCREMENT,
     name VARCHAR(50) NOT NULL,
     lecturer VARCHAR(50) NOT NULL,
     price DECIMAL NOT NULL,
     thumbnail_image_url VARCHAR(255) DEFAULT NULL,
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP(),
     updated_at DATETIME DEFAULT NULL,
-    PRIMARY KEY (lecutre_id)
+    PRIMARY KEY (lecture_id)
 );
 
 -- 바우처 데이터
@@ -38,6 +38,6 @@ CREATE TABLE orders
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP(),
     updated_at DATETIME DEFAULT NULL,
     PRIMARY KEY (order_id),
-    CONSTRAINT fk_order_to_lecture FOREIGN KEY (lecture_id) REFERENCES lectures (lecutre_id) ON DELETE RESTRICT ON UPDATE RESTRICT,
+    CONSTRAINT fk_order_to_lecture FOREIGN KEY (lecture_id) REFERENCES lectures (lecture_id) ON DELETE RESTRICT ON UPDATE RESTRICT,
     CONSTRAINT fk_order_to_voucher FOREIGN KEY (voucher_id) REFERENCES vouchers (voucher_id) ON DELETE RESTRICT ON UPDATE RESTRICT
 );
