@@ -1,7 +1,7 @@
 import styles from "./search_header.module.css";
 import React, { useRef } from "react";
 
-const SearchHeader = ({ onSearch }) => {
+const SearchHeader = ({ onSearch, goToMain }) => {
   const inputRef = useRef();
   const handleSearch = () => {
     const value = inputRef.current.value;
@@ -19,7 +19,12 @@ const SearchHeader = ({ onSearch }) => {
 
   return (
     <header className={styles.header}>
-      <img className={styles.logo} src="/images/logo.png" alt="logo" />
+      <img
+        className={styles.logo}
+        src="/images/logo.png"
+        alt="logo"
+        onClick={goToMain}
+      />
       <input
         ref={inputRef}
         className={styles.input}

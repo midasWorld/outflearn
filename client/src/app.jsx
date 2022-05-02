@@ -14,6 +14,9 @@ function App({ lecture }) {
       },
     });
   };
+  const goToMain = () => {
+    navigate("/");
+  };
 
   const [lectures, setLectures] = useState([]);
 
@@ -31,7 +34,7 @@ function App({ lecture }) {
 
   return (
     <div className={styles.app}>
-      <SearchHeader onSearch={search} />
+      <SearchHeader onSearch={search} goToMain={goToMain} />
       <Routes>
         <Route
           exact
