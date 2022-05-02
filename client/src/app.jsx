@@ -3,30 +3,18 @@ import styles from "./app.module.css";
 import LectureList from "./components/lecture_list/lecture_list";
 import SearchHeader from "./components/search_header/search_header";
 
-function App() {
+function App({ lecture }) {
   const [lectures, setLectures] = useState([]);
   const search = (query) => {
-    const requestOptions = {
-      method: "GET",
-      redirect: "follow",
-    };
-
-    fetch(`http://localhost:8080/api/v1/lectures/${query}`, requestOptions)
-      .then((response) => response.json())
-      .then((result) => setLectures(result.response))
-      .catch((error) => console.log("error", error));
+    lecture
+      .search(query) //
+      .then((lectures) => setLectures(lectures));
   };
 
   useEffect(() => {
-    const requestOptions = {
-      method: "GET",
-      redirect: "follow",
-    };
-
-    fetch("http://localhost:8080/api/v1/lectures", requestOptions)
-      .then((response) => response.json())
-      .then((result) => setLectures(result.response))
-      .catch((error) => console.log("error", error));
+    lecture
+      .all() //
+      .then((lectures) => setLectures(lectures));
   }, []);
   return (
     <div className={styles.app}>
