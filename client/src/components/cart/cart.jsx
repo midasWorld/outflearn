@@ -1,14 +1,11 @@
 import React from "react";
-import styles from "./lecture_item.module.css";
+import styles from "./cart.module.css";
 
-const LectureItem = ({ lecture, goToPayment }) => {
-  const onBuyClick = () => {
-    goToPayment(lecture);
-  };
-
+const Cart = ({ lecture }) => {
   return (
-    <li className={styles.container}>
-      <div className={styles.lecture}>
+    <section className={styles.container}>
+      <p className={styles.title}>강의 정보</p>
+      <div className={styles.cart}>
         <img
           className={styles.thumbnail}
           src={lecture.thumbnail_image_url}
@@ -17,14 +14,12 @@ const LectureItem = ({ lecture, goToPayment }) => {
         <div className={styles.metadata}>
           <p className={styles.name}>{lecture.name}</p>
           <p className={styles.lecturer}>{lecture.lecturer}</p>
+        </div>
+        <div>
           <p className={styles.price}>{lecture.price.toLocaleString()}</p>
         </div>
-        <button className={styles.button} onClick={onBuyClick}>
-          구매하기
-        </button>
       </div>
-    </li>
+    </section>
   );
 };
-
-export default LectureItem;
+export default Cart;

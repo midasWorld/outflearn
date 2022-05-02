@@ -7,8 +7,12 @@ import SearchHeader from "./components/search_header/search_header";
 
 function App({ lecture }) {
   const navigate = useNavigate();
-  const goToPayment = () => {
-    navigate("/payment");
+  const goToPayment = (lecture) => {
+    navigate("/payment", {
+      state: {
+        lecture: lecture,
+      },
+    });
   };
 
   const [lectures, setLectures] = useState([]);

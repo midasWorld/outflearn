@@ -9,7 +9,7 @@ const LectureList = ({ lectures, goToPayment }) => {
         <LectureItem
           key={lecture.lectureId}
           lecture={lecture}
-          onBuyClick={goToPayment}
+          goToPayment={goToPayment}
         />
       ))}
     </ul>
