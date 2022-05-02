@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./lecture_item.module.css";
 
-const LectureItem = ({ lecture }) => (
+const LectureItem = ({ lecture, onBuyClick }) => (
   <li className={styles.container}>
     <div className={styles.lecture}>
       <img
@@ -14,6 +14,9 @@ const LectureItem = ({ lecture }) => (
         <p className={styles.lecturer}>{lecture.lecturer}</p>
         <p className={styles.price}>{lecture.price.toLocaleString()}</p>
       </div>
+      <button className={styles.button} onClick={onBuyClick}>
+        구매하기
+      </button>
     </div>
   </li>
 );

@@ -50,3 +50,18 @@
 .price::before {
   content: "₩";
 }
+
+.button {
+  cursor: pointer;
+  position: relative;
+  background: #819ff7;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-weight: bold;
+  transition: 0.25s;
+}
+
+.button:hover {
+  background: #01df01;
+}
