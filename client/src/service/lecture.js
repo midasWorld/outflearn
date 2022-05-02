@@ -1,28 +1,20 @@
+import axios from "axios";
+
 class Lecture {
   constructor(baseUrl) {
-    this.baseUrl = baseUrl;
-    this.getRequestOptions = {
-      method: "GET",
-      redirect: "follow",
-    };
+    this.client = axios.create({
+      baseURL: baseUrl,
+    });
   }
 
   async all() {
-    const response = await fetch(
-      `${this.baseUrl}/api/v1/lectures`,
-      this.getRequestOptions
-    );
-    const result_1 = await response.json();
-    return result_1.response;
+    const response = await this.client.get("api/v1/lectures");
+    return response.data.response;
   }
 
   async search(query) {
-    const response = await fetch(
-      `${this.baseUrl}/api/v1/lectures/${query}`,
-      this.getRequestOptions
-    );
-    const result_1 = await response.json();
-    return result_1.response;
+    const response = await this.client.get(`api/v1/lectures/${query}`);
+    return response.data.response;
   }
 }
 
