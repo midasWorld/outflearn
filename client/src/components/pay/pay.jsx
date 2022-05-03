@@ -95,9 +95,14 @@ const Pay = ({ lecture, voucherService, orderService, goToMain }) => {
 
   const onPayTypeClick = (event) => {
     const payBtn = event.target;
-    const payType =
+    const clickedPayType =
       payBtn.nodeName === "BUTTON" ? payBtn.value : payBtn.parentNode.value;
-    setPayType(payType);
+
+    if (clickedPayType === payType) {
+      setPayType(null);
+      return;
+    }
+    setPayType(clickedPayType);
   };
 
   return (
