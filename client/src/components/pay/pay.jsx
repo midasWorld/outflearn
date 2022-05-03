@@ -53,12 +53,6 @@ const Pay = ({ lecture, voucherService, orderService, goToMain }) => {
   };
 
   const searchVoucher = () => {
-    if (voucherRef.current.value === "") {
-      setVoucher(null);
-      changeDiscount(0);
-      return;
-    }
-
     voucherService
       .search(voucherRef.current.value) //
       .then((voucher) => handleVoucherSuccess(voucher))
@@ -86,6 +80,13 @@ const Pay = ({ lecture, voucherService, orderService, goToMain }) => {
     alert(error.response.data.error.message);
   };
 
+  const onVoucherChange = () => {
+    if (voucherRef.current.value === "") {
+      setVoucher(null);
+      changeDiscount(0);
+    }
+  };
+
   const changeDiscount = (discount) => {
     const discountAmount = (lecture.price * discount) / 100;
     const amount = lecture.price - discountAmount;
@@ -108,6 +109,7 @@ const Pay = ({ lecture, voucherService, orderService, goToMain }) => {
           ref={voucherRef}
           placeholder="보유한 쿠폰코드를 입력하세요."
           onKeyDown={onVoucherKeyDown}
+          onChange={onVoucherChange}
         />
         <button
           className={styles.button}
