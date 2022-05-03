@@ -1,4 +1,26 @@
-.pay {
+.container {
   flex-basis: 50%;
   background-color: pink;
+}
+
+.voucher {
+  display: flex;
+  height: 3rem;
+  /* padding: 0.5em 1em; */
+}
+
+.input {
+  flex-basis: 100%;
+  font-size: 1.2rem;
+  outline: 0;
+}
+
+.button {
+  background-color: darkgray;
+  /* padding: 0.5em 0.2em; */
+  outline: 0;
+}
+
+.pay {
+  background-color: wheat;
 }

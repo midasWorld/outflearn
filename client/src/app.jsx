@@ -5,7 +5,7 @@ import LectureList from "./components/lecture_list/lecture_list";
 import Payment from "./components/payment/payment";
 import SearchHeader from "./components/search_header/search_header";
 
-function App({ lecture }) {
+function App({ lecture, voucherService, orderService }) {
   const navigate = useNavigate();
   const goToPayment = (lecture) => {
     navigate("/payment", {
@@ -43,7 +43,16 @@ function App({ lecture }) {
             <LectureList lectures={lectures} goToPayment={goToPayment} />
           }
         />
-        <Route path="/payment" element={<Payment />} />
+        <Route
+          path="/payment"
+          element={
+            <Payment
+              voucherService={voucherService}
+              orderService={orderService}
+              goToMain={goToMain}
+            />
+          }
+        />
       </Routes>
     </div>
   );

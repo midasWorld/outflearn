@@ -4,13 +4,19 @@ import Cart from "../cart/cart";
 import Pay from "../pay/pay";
 import styles from "./payment.module.css";
 
-const Payment = (props) => {
+const Payment = ({ voucherService, orderService, goToMain }) => {
   const location = useLocation();
+  const lecture = location.state.lecture;
 
   return (
     <div className={styles.container}>
-      <Cart lecture={location.state.lecture} />
-      <Pay />
+      <Cart lecture={lecture} />
+      <Pay
+        lecture={lecture}
+        voucherService={voucherService}
+        orderService={orderService}
+        goToMain={goToMain}
+      />
     </div>
   );
 };
