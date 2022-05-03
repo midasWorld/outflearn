@@ -8,6 +8,6 @@
 
 @media screen and (max-width: mediaQuery) {
   .container {
-    flex-direction: column-reverse;
+    flex-direction: column;
   }
 }
