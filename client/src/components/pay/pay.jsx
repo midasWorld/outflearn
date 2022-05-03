@@ -146,19 +146,35 @@ const Pay = ({ lecture, voucherService, orderService, goToMain }) => {
         <div className={styles.field}>
           <label className={styles.label}>결제수단</label>
           <div className={styles.paygroup}>
-            <button value="CREDIT_CARD" onClick={onPayTypeClick}>
+            <button
+              value="CREDIT_CARD"
+              onClick={onPayTypeClick}
+              className={payType === "CREDIT_CARD" ? styles.active : ""}
+            >
               <i className="fa-solid fa-credit-card"></i>
               <span>신용카드</span>
             </button>
-            <button value="NAVER_PAY" onClick={onPayTypeClick}>
+            <button
+              value="NAVER_PAY"
+              onClick={onPayTypeClick}
+              className={payType === "NAVER_PAY" ? styles.active : ""}
+            >
               <i className="fa-solid fa-n"></i>
               <span>네이버페이</span>
             </button>
-            <button value="VIRTUAL_ACCOUNT" onClick={onPayTypeClick}>
+            <button
+              value="VIRTUAL_ACCOUNT"
+              onClick={onPayTypeClick}
+              className={payType === "VIRTUAL_ACCOUNT" ? styles.active : ""}
+            >
               <i className="fa-solid fa-piggy-bank"></i>
               <span>가상계좌</span>
             </button>
-            <button value="KAKAO_PAY" onClick={onPayTypeClick}>
+            <button
+              value="KAKAO_PAY"
+              onClick={onPayTypeClick}
+              className={payType === "KAKAO_PAY" ? styles.active : ""}
+            >
               <i className="fa-brands fa-kickstarter-k"></i>
               <span>카카오페이</span>
             </button>

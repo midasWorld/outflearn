@@ -99,7 +99,8 @@ h1 div {
 }
 
 .paygroup button.active {
-  background: black;
+  border-color: black;
+  font-weight: bold;
 }
 
 .paygroup button:hover {
