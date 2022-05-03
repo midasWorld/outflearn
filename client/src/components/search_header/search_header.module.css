@@ -10,13 +10,28 @@
 }
 
 .input {
-  flex-basis: 100%;
+  margin-left: auto;
+  flex-basis: 50%;
   font-size: 1.2rem;
   outline: 0;
+  border: 1px solid lightgray;
+  border-radius: 0.2em 0 0 0.2em;
+  box-shadow: 1px 1px 3px 0px rgba(191, 191, 191, 0.53);
 }
 
 .button {
-  background-color: darkgray;
-  padding: 0.5em 0.2em;
-  outline: 0;
+  position: relative;
+  background: #01df01;
+  color: white;
+  border: none;
+  border-radius: 0 0.4em 0.4em 0;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.button:hover {
+  background: #04b404;
 }
