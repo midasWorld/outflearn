@@ -33,7 +33,7 @@ CREATE TABLE orders
     order_id BIGINT NOT NULL AUTO_INCREMENT,
     email VARCHAR(50) NOT NULL,
     lecture_id BIGINT NOT NULL,
-    voucher_id BIGINT NOT NULL,
+    voucher_id BIGINT,
     payment_type VARCHAR(50) NOT NULL,
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP(),
     updated_at DATETIME DEFAULT NULL,
