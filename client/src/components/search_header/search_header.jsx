@@ -35,7 +35,7 @@ const SearchHeader = ({ onSearch, goToMain }) => {
         ref={inputRef}
         className={styles.input}
         type="search"
-        placeholder="Search..."
+        placeholder="강의명으로 검색 가능합니다."
         onKeyDown={onKeyDown}
       />
       <button className={styles.button} type="submit" onClick={onClick}>
