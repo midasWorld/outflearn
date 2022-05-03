@@ -52,11 +52,21 @@ const Pay = ({ lecture, voucherService, orderService, goToMain }) => {
     alert(error.response.data.error.message);
   };
 
-  const onVoucherClick = () => {
+  const searchVoucher = () => {
     voucherService
       .search(voucherRef.current.value) //
       .then((voucher) => handleVoucherSuccess(voucher))
       .catch((error) => handleVoucherError(error));
+  };
+
+  const onVoucherClick = () => {
+    searchVoucher();
+  };
+
+  const onVoucherKeyDown = (event) => {
+    if (event.key === "Enter") {
+      searchVoucher();
+    }
   };
 
   const handleVoucherSuccess = (voucher) => {
@@ -91,6 +101,7 @@ const Pay = ({ lecture, voucherService, orderService, goToMain }) => {
           type="search"
           ref={voucherRef}
           placeholder="보유한 쿠폰코드를 입력하세요."
+          onKeyDown={onVoucherKeyDown}
         />
         <button
           className={styles.button}
