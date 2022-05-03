@@ -23,7 +23,13 @@ public class GeneralExceptionHandler {
 
     @ExceptionHandler({IllegalArgumentException.class})
     public ResponseEntity<?> handleBadRequestException(Exception e) {
-        logger.debug("Bad request exception occured: {}", e.getMessage(), e);
+        logger.debug("Bad request exception occurred: {}", e.getMessage(), e);
         return newResponse(e, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler({Exception.class, RuntimeException.class})
+    public ResponseEntity<?> handleException(Exception e) {
+        logger.error("Unexpected error occurred: {}", e.getMessage(), e);
+        return newResponse(e, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
