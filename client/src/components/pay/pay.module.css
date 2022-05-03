@@ -1,26 +1,104 @@
 .container {
   flex-basis: 50%;
-  background-color: pink;
+  padding: 1em 3em;
+  margin: 0 auto;
+}
+
+.input {
+  width: 100%;
+  height: 2.5rem;
+  font-size: 1rem;
+  outline: 0;
+  border: 1px solid lightgray;
+  border-radius: 0.2em 0 0 0.2em;
+  box-shadow: 1px 1px 3px 0px rgba(191, 191, 191, 0.53);
+}
+
+.button {
+  position: relative;
+  background: #01df01;
+  color: white;
+  border: none;
+  border-radius: 0.4em;
+  padding: 0.5em;
+  font-weight: bold;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.button:hover {
+  background: #04b404;
+}
+
+h1 span {
+  float: right;
 }
 
 .voucher {
   display: flex;
-  height: 3rem;
-  /* padding: 0.5em 1em; */
+  height: 2.5rem;
 }
 
-.input {
-  flex-basis: 100%;
-  font-size: 1.2rem;
-  outline: 0;
-}
-
-.button {
-  background-color: darkgray;
-  /* padding: 0.5em 0.2em; */
-  outline: 0;
+.voucher button {
+  width: 20%;
+  position: relative;
+  background: #01df01;
+  color: white;
+  border: none;
+  border-radius: 0 0.4em 0.4em 0;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 1.1em;
+  cursor: pointer;
 }
 
 .pay {
-  background-color: wheat;
+  border: 1px solid lightgray;
+  box-shadow: 1px 1px 3px 0px rgba(191, 191, 191, 0.53);
+  padding: 0 2em 1em 2em;
+  margin-top: 1em;
+}
+
+.pay input {
+  margin-top: 0.3em;
+  border-radius: 0.2em;
+}
+
+.pay label {
+  display: block;
+}
+
+.field {
+  margin-top: 1em;
+}
+
+.pay button {
+  width: 100%;
+  margin-top: 1em;
+  transition: 0.25s;
+}
+
+.paygroup button {
+  width: 40%;
+  margin-top: 0.2em;
+  margin-right: 0.5em;
+  margin-bottom: 0.3em;
+  padding: 0.5em;
+  background: white;
+  border: 1px solid lightgray;
+  border-radius: 0.3em;
+  cursor: pointer;
+}
+
+.paygroup button.active {
+  background: black;
+}
+
+.paygroup button:hover {
+  border: 1px solid gray;
+}
+
+.paygroup button span {
+  margin-left: 0.2em;
 }

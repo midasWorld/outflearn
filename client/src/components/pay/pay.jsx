@@ -4,17 +4,34 @@ import styles from "./pay.module.css";
 const Pay = ({ lecture, voucherService, orderService, goToMain }) => {
   const [amount, setAmount] = useState(lecture.price);
   const [voucher, setVoucher] = useState(null);
+  const [payType, setPayType] = useState(null);
 
   const voucherRef = useRef();
   const emailRef = useRef();
+  const acceptRef = useRef();
 
   const onPayClick = () => {
+    if (emailRef.current.value === "") {
+      alert("이메일을 입력하세요.");
+      return;
+    }
+
+    if (payType == null) {
+      alert("결제 수단을 선택하세요.");
+      return;
+    }
+
+    if (acceptRef.current.checked === false) {
+      alert("약관 동의를 해주세요.");
+      return;
+    }
+
     orderService
       .create({
         lectureId: lecture.lectureId,
         voucherId: voucher == null ? null : voucher.voucherId,
         email: emailRef.current.value,
-        paymentType: "NAVER_PAY",
+        paymentType: payType,
       })
       .then((order) => handleOrderSuccess(order))
       .catch((error) => handleOrderError(error));
@@ -59,6 +76,13 @@ const Pay = ({ lecture, voucherService, orderService, goToMain }) => {
     setAmount(amount);
   };
 
+  const onPayTypeClick = (event) => {
+    const payBtn = event.target;
+    const payType =
+      payBtn.nodeName === "BUTTON" ? payBtn.value : payBtn.parentNode.value;
+    setPayType(payType);
+  };
+
   return (
     <section className={styles.container}>
       <div className={styles.voucher}>
@@ -79,28 +103,41 @@ const Pay = ({ lecture, voucherService, orderService, goToMain }) => {
       <div className={styles.pay}>
         <h1>
           총계
-          <span>${amount.toLocaleString()}</span>
+          <span>₩{amount.toLocaleString()}</span>
         </h1>
         <div className={styles.field}>
-          <label className={styles.label}>이메일</label>
+          <label className={styles.label}>이메일 주소</label>
           <input
             type="email"
             className={styles.input}
             name="email"
             ref={emailRef}
+            placeholder="이메일을 입력하세요."
           />
         </div>
         <div className={styles.field}>
           <label className={styles.label}>결제수단</label>
           <div className={styles.paygroup}>
-            <button>신용카드</button>
-            <button>네이버페이</button>
-            <button>가상계좌</button>
-            <button>카카오페이</button>
+            <button value="CREDIT_CARD" onClick={onPayTypeClick}>
+              <i className="fa-solid fa-credit-card"></i>
+              <span>신용카드</span>
+            </button>
+            <button value="NAVER_PAY" onClick={onPayTypeClick}>
+              <i className="fa-solid fa-n"></i>
+              <span>네이버페이</span>
+            </button>
+            <button value="VIRTUAL_ACCOUNT" onClick={onPayTypeClick}>
+              <i className="fa-solid fa-piggy-bank"></i>
+              <span>가상계좌</span>
+            </button>
+            <button value="KAKAO_PAY" onClick={onPayTypeClick}>
+              <i className="fa-brands fa-kickstarter-k"></i>
+              <span>카카오페이</span>
+            </button>
           </div>
         </div>
-        <div>
-          <input type="checkbox" value="동의" />
+        <div className={styles.field}>
+          <input type="checkbox" value="동의" ref={acceptRef} />
           <span>(필수) 구매조건 및 개인정보취급방침 동의</span>
         </div>
         <button className={styles.button} type="submit" onClick={onPayClick}>
