@@ -33,8 +33,12 @@
 
 <!-- 사용 gif -->
 
-|                                           메인 화면                                           |                                         결제 화면                                         |
-| :-------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------: |
-|      <img src="https://midas-outflearn.s3.ap-northeast-2.amazonaws.com/main_page.gif"/>       |   <img src="https://midas-outflearn.s3.ap-northeast-2.amazonaws.com/payment_page.gif"/>   |
-|                                           쿠폰 적용                                           |                                           결제                                            |
-| <img src="https://midas-outflearn.s3.ap-northeast-2.amazonaws.com/payment_page_voucher.gif"/> | <img src="https://midas-outflearn.s3.ap-northeast-2.amazonaws.com/payment_page_pay.gif"/> |
+|                                           메인 화면                                           |
+| :-------------------------------------------------------------------------------------------: |
+|      <img src="https://midas-outflearn.s3.ap-northeast-2.amazonaws.com/main_page.gif"/>       |
+|                                       <b>결제 화면</b>                                        |
+|     <img src="https://midas-outflearn.s3.ap-northeast-2.amazonaws.com/payment_page.gif"/>     |
+|                                       <b>쿠폰 적용</b>                                        |
+| <img src="https://midas-outflearn.s3.ap-northeast-2.amazonaws.com/payment_page_voucher.gif"/> |
+|                                          <b>결제</b>                                          |
+|   <img src="https://midas-outflearn.s3.ap-northeast-2.amazonaws.com/payment_page_pay.gif"/>   |
