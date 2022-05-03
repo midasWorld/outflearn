@@ -6,8 +6,7 @@ import com.midas.outflearn.controller.ApiResponse;
 import com.midas.outflearn.model.common.AttachedFile;
 import com.midas.outflearn.model.lecture.Lecture;
 import com.midas.outflearn.service.lecture.LectureService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -20,10 +19,9 @@ import static com.midas.outflearn.controller.ApiResponse.OK;
 import static com.midas.outflearn.model.common.AttachedFile.toAttachedFile;
 import static java.util.concurrent.CompletableFuture.supplyAsync;
 
+@Slf4j
 @RestController
 public class LectureRestController {
-
-    private final Logger logger = LoggerFactory.getLogger(getClass());
 
     private final LectureService lectureService;
     private final S3Client s3Client;
@@ -67,7 +65,7 @@ public class LectureRestController {
             try {
                 thumbnailImageUrl = s3Client.upload(thumbnailFile.inputStream(), thumbnailFile.length(), key, thumbnailFile.getContentType(), null);
             } catch (AmazonS3Exception e) {
-                logger.warn("Amazon S3 error (key: {}): {}", key, e.getMessage(), e);
+                log.warn("Amazon S3 error (key: {}): {}", key, e.getMessage(), e);
             }
         }
         return Optional.ofNullable(thumbnailImageUrl);
