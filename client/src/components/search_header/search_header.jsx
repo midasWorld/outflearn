@@ -17,13 +17,19 @@ const SearchHeader = ({ onSearch, goToMain }) => {
     }
   };
 
+  const onLogoClick = () => {
+    inputRef.current.value = "";
+    onSearch("");
+    goToMain();
+  };
+
   return (
     <header className={styles.header}>
       <img
         className={styles.logo}
         src="/images/logo.png"
         alt="logo"
-        onClick={goToMain}
+        onClick={onLogoClick}
       />
       <input
         ref={inputRef}
