@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { Route, Routes, useNavigate, useLocation } from "react-router-dom";
 import styles from "./app.module.css";
 import LectureList from "./components/lecture_list/lecture_list";
 import Payment from "./components/payment/payment";
@@ -7,6 +7,8 @@ import SearchHeader from "./components/search_header/search_header";
 
 function App({ lecture, voucherService, orderService }) {
   const navigate = useNavigate();
+  const location = useLocation();
+
   const goToPayment = (lecture) => {
     navigate("/payment", {
       state: {
@@ -21,6 +23,9 @@ function App({ lecture, voucherService, orderService }) {
   const [lectures, setLectures] = useState([]);
 
   const search = (query) => {
+    if (location.pathname !== "/") {
+      goToMain();
+    }
     lecture
       .search(query) //
       .then((lectures) => setLectures(lectures));
