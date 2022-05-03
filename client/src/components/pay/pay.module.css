@@ -16,7 +16,7 @@
 
 .button {
   position: relative;
-  background: #01df01;
+  background: #819ff7;
   color: white;
   border: none;
   border-radius: 0.4em;
@@ -28,7 +28,7 @@
 }
 
 .button:hover {
-  background: #04b404;
+  background: #01df01;
 }
 
 h1 span {
@@ -43,7 +43,7 @@ h1 span {
 .voucher button {
   width: 20%;
   position: relative;
-  background: #01df01;
+  background: #819ff7;
   color: white;
   border: none;
   border-radius: 0 0.4em 0.4em 0;
