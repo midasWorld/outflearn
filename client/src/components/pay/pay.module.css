@@ -31,8 +31,15 @@
   background: #01df01;
 }
 
-h1 span {
+h1 div {
   float: right;
+}
+
+.origin {
+  font-size: 1.1rem;
+  text-decoration: line-through;
+  text-decoration-style: double;
+  margin-right: 0.5em;
 }
 
 .voucher {

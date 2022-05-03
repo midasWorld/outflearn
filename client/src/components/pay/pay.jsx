@@ -53,6 +53,11 @@ const Pay = ({ lecture, voucherService, orderService, goToMain }) => {
   };
 
   const searchVoucher = () => {
+    if (voucherRef.current.value === "") {
+      setVoucher(null);
+      return;
+    }
+
     voucherService
       .search(voucherRef.current.value) //
       .then((voucher) => handleVoucherSuccess(voucher))
@@ -114,7 +119,16 @@ const Pay = ({ lecture, voucherService, orderService, goToMain }) => {
       <div className={styles.pay}>
         <h1>
           총계
-          <span>₩{amount.toLocaleString()}</span>
+          <div>
+            {voucher === null ? (
+              ""
+            ) : (
+              <span className={styles.origin}>
+                ₩{lecture.price.toLocaleString()}
+              </span>
+            )}
+            <span>₩{amount.toLocaleString()}</span>
+          </div>
         </h1>
         <div className={styles.field}>
           <label className={styles.label}>이메일 주소</label>
