@@ -55,6 +55,7 @@ const Pay = ({ lecture, voucherService, orderService, goToMain }) => {
   const searchVoucher = () => {
     if (voucherRef.current.value === "") {
       setVoucher(null);
+      changeDiscount(0);
       return;
     }
 
