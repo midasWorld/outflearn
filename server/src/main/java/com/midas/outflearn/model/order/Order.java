@@ -1,5 +1,8 @@
 package com.midas.outflearn.model.order;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 import java.time.LocalDateTime;
 
 import static com.google.common.base.Preconditions.checkArgument;
@@ -59,6 +62,19 @@ public class Order {
 
     public LocalDateTime getUpdatedAt() {
         return updatedAt;
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE)
+            .append("orderId", orderId)
+            .append("email", email)
+            .append("lectureId", lectureId)
+            .append("voucherId", voucherId)
+            .append("paymentType", paymentType)
+            .append("createdAt", createdAt)
+            .append("updatedAt", updatedAt)
+            .toString();
     }
 
     static public class Builder {

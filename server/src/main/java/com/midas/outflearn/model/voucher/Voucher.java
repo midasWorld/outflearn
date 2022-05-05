@@ -1,5 +1,8 @@
 package com.midas.outflearn.model.voucher;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 import java.time.LocalDateTime;
 
 import static com.google.common.base.Preconditions.checkArgument;
@@ -62,5 +65,18 @@ public class Voucher {
 
     public LocalDateTime getUpdatedAt() {
         return updatedAt;
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE)
+            .append("voucherId", voucherId)
+            .append("name", name)
+            .append("code", code)
+            .append("percent", percent)
+            .append("status", status)
+            .append("createdAt", createdAt)
+            .append("updatedAt", updatedAt)
+            .toString();
     }
 }
