@@ -1,4 +1,5 @@
 @value mediaQuery from '../../common/size.css';
+@value markerShadow, markerGray, markerLightGray, markerBlue, markerDarkBlue, markerWhite, markerYellowGreen from '../../common/colors.css';
 
 .container {
   width: 25%;
@@ -10,8 +11,8 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  border: 1px solid lightgray;
-  box-shadow: 3px 3px 5px 0px rgba(191, 191, 191, 0.53);
+  border: 1px solid markerLightGray;
+  box-shadow: 3px 3px 5px 0px markerShadow;
   cursor: pointer;
   transition: transform 250ms ease-in;
 }
@@ -42,11 +43,11 @@
 
 .lecturer {
   font-size: 0.8rem;
-  color: gray;
+  color: markerGray;
 }
 
 .price {
-  color: #155cbf;
+  color: markerDarkBlue;
 }
 
 .price::before {
@@ -56,8 +57,8 @@
 .button {
   cursor: pointer;
   position: relative;
-  background: #819ff7;
-  color: white;
+  background: markerBlue;
+  color: markerWhite;
   border: none;
   padding: 10px;
   font-weight: bold;
@@ -65,7 +66,7 @@
 }
 
 .button:hover {
-  background: #01df01;
+  background: markerYellowGreen;
 }
 
 @media screen and (max-width: mediaQuery) {

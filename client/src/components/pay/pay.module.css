@@ -1,3 +1,5 @@
+@value markerBlue, markerYellowGreen, markerBlue, markerWhite, markerGray, markerLightGray, markerBlack, markerShadow from '../../common/colors.css';
+
 .container {
   flex-basis: 50%;
   padding: 1em 3em;
@@ -9,15 +11,15 @@
   height: 2.5rem;
   font-size: 1rem;
   outline: 0;
-  border: 1px solid lightgray;
+  border: 1px solid markerLightGray;
   border-radius: 0.2em 0 0 0.2em;
-  box-shadow: 1px 1px 3px 0px rgba(191, 191, 191, 0.53);
+  box-shadow: 1px 1px 3px 0px markerShadow;
 }
 
 .button {
   position: relative;
-  background: #819ff7;
-  color: white;
+  background: markerBlue;
+  color: markerWhite;
   border: none;
   border-radius: 0.4em;
   padding: 0.5em;
@@ -28,7 +30,7 @@
 }
 
 .button:hover {
-  background: #01df01;
+  background: markerYellowGreen;
 }
 
 h1 div {
@@ -50,8 +52,8 @@ h1 div {
 .voucher button {
   width: 20%;
   position: relative;
-  background: #819ff7;
-  color: white;
+  background: markerBlue;
+  color: markerWhite;
   border: none;
   border-radius: 0 0.4em 0.4em 0;
   padding: 10px;
@@ -61,8 +63,8 @@ h1 div {
 }
 
 .pay {
-  border: 1px solid lightgray;
-  box-shadow: 1px 1px 3px 0px rgba(191, 191, 191, 0.53);
+  border: 1px solid markerLightGray;
+  box-shadow: 1px 1px 3px 0px markerShadow;
   padding: 0 2em 1em 2em;
   margin-top: 1em;
 }
@@ -92,19 +94,19 @@ h1 div {
   margin-right: 0.5em;
   margin-bottom: 0.3em;
   padding: 0.5em;
-  background: white;
-  border: 1px solid lightgray;
+  background: markerWhite;
+  border: 1px solid markerLightGray;
   border-radius: 0.3em;
   cursor: pointer;
 }
 
 .paygroup button.active {
-  border-color: black;
+  border-color: markerBlack;
   font-weight: bold;
 }
 
 .paygroup button:hover {
-  border: 1px solid gray;
+  border: 1px solid markerGray;
 }
 
 .paygroup button span {

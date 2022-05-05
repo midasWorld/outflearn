@@ -1,3 +1,5 @@
+@value markerLightGray, markerBlue, markerWhite, markerYellowGreen, markerShadow from '../../common/colors.css';
+
 .header {
   display: flex;
   height: 4.5rem;
@@ -14,15 +16,15 @@
   flex-basis: 50%;
   font-size: 1.2rem;
   outline: 0;
-  border: 1px solid lightgray;
+  border: 1px solid markerLightGray;
   border-radius: 0.2em 0 0 0.2em;
-  box-shadow: 1px 1px 3px 0px rgba(191, 191, 191, 0.53);
+  box-shadow: 1px 1px 3px 0px markerShadow;
 }
 
 .button {
   position: relative;
-  background: #819ff7;
-  color: white;
+  background: markerBlue;
+  color: markerWhite;
   border: none;
   border-radius: 0 0.4em 0.4em 0;
   padding: 10px;
@@ -33,5 +35,5 @@
 }
 
 .button:hover {
-  background: #01df01;
+  background: markerYellowGreen;
 }

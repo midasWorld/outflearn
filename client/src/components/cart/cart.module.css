@@ -1,23 +1,25 @@
+@value markerWhite, markerGray, markerLightGray, markerDarkBlue, markerShadow from '../../common/colors.css';
+
 .container {
   flex-basis: 50%;
   padding: 1em;
 }
 
 .title {
-  background-color: #f2f2f2;
+  background-color: markerWhite;
   padding: 1em;
   margin: 0;
   font-weight: bold;
-  border: 1px solid lightgray;
-  box-shadow: 3px 1px 5px 0px rgba(191, 191, 191, 0.53);
+  border: 1px solid markerLightGray;
+  box-shadow: 3px 1px 5px 0px markerShadow;
 }
 
 .cart {
   width: 100%;
   display: flex;
   flex-direction: row;
-  border: 1px solid lightgray;
-  box-shadow: 3px 3px 5px 0px rgba(191, 191, 191, 0.53);
+  border: 1px solid markerLightGray;
+  box-shadow: 3px 3px 5px 0px markerShadow;
   cursor: pointer;
   padding: 0.5em;
 }
@@ -39,7 +41,7 @@
 }
 
 .lecturer {
-  color: gray;
+  color: markerGray;
   font-size: 0.9rem;
   margin: 0;
 }
@@ -49,7 +51,7 @@
   text-align: right;
   font-weight: bold;
   font-size: 1.1rem;
-  color: #155cbf;
+  color: markerDarkBlue;
 }
 
 .price::before {
