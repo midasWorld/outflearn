@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.Map;
 
 import static com.midas.outflearn.util.DateTimeUtils.dateTimeOf;
+import static com.midas.outflearn.util.DateTimeUtils.timestampOf;
 
 @Repository
 public class OrderJdbcRepository implements OrderRepository {
@@ -65,8 +66,8 @@ public class OrderJdbcRepository implements OrderRepository {
         paramMap.put("lectureId", order.getLectureId());
         paramMap.put("voucherId", order.getVoucherId());
         paramMap.put("paymentType", order.getPaymentType().toString());
-        paramMap.put("createdAt", order.getCreatedAt());
-        paramMap.put("updatedAt", order.getUpdatedAt());
+        paramMap.put("createdAt", timestampOf(order.getCreatedAt()));
+        paramMap.put("updatedAt", timestampOf(order.getUpdatedAt()));
         return paramMap;
     }
 
