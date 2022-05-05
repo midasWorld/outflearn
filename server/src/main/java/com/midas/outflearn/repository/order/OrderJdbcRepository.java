@@ -1,6 +1,9 @@
 package com.midas.outflearn.repository.order;
 
+import com.midas.outflearn.model.order.Email;
 import com.midas.outflearn.model.order.Order;
+import com.midas.outflearn.model.order.PaymentType;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
@@ -8,8 +11,12 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDateTime;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+import static com.midas.outflearn.util.DateTimeUtils.dateTimeOf;
 
 @Repository
 public class OrderJdbcRepository implements OrderRepository {
@@ -34,6 +41,22 @@ public class OrderJdbcRepository implements OrderRepository {
             .orderId(generatedOrderId)
             .build();
     }
+
+    @Override
+    public List<Order> findAll() {
+        return jdbcTemplate.query("SELECT * FROM orders", orderRowMapper);
+    }
+
+    private RowMapper<Order> orderRowMapper = (resultSet, i) -> {
+        long orderId = resultSet.getLong("order_id");
+        Email email = new Email(resultSet.getString("email"));
+        long lectureId = resultSet.getLong("lecture_id");
+        Long voucherId = resultSet.getObject("voucher_id", Long.class);
+        PaymentType paymentType = PaymentType.valueOf(resultSet.getString("payment_type"));
+        LocalDateTime createdAt = dateTimeOf(resultSet.getTimestamp("created_at"));
+        LocalDateTime updatedAt = dateTimeOf(resultSet.getTimestamp("updated_at"));
+        return new Order(orderId, email, lectureId, voucherId, paymentType, createdAt, updatedAt);
+    };
 
     private Map<String, Object> toOrderParamMap(Order order) {
         Map<String, Object> paramMap = new HashMap<>();
