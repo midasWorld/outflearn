@@ -1,7 +1,18 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./order_item.module.css";
 
 const OrderItem = ({ order }) => {
+  const navigate = useNavigate();
+
+  const onNameClick = () => {
+    navigate("/order/details", {
+      state: {
+        order: order,
+      },
+    });
+  };
+
   return (
     <tr className={styles.order}>
       <td className={styles.id}>{order.orderId}</td>
@@ -13,7 +24,9 @@ const OrderItem = ({ order }) => {
         }
       </td>
       <td className={styles.state}>결제 완료</td>
-      <td className={styles.name}>{order.lectureName}</td>
+      <td className={styles.name} onClick={onNameClick}>
+        {order.lectureName}
+      </td>
       <td className={styles.price}>{order.price.toLocaleString()}</td>
       <td>{order.email}</td>
     </tr>

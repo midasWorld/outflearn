@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Route, Routes, useNavigate, useLocation } from "react-router-dom";
 import styles from "./app.module.css";
 import LectureList from "./components/lecture_list/lecture_list";
-import OrderList from "./components/order_list/order_list";
+import OrderHistory from "./components/order_history/order_history";
 import Payment from "./components/payment/payment";
 import SearchHeader from "./components/search_header/search_header";
 
@@ -69,7 +69,7 @@ function App({ lecture, voucherService, orderService }) {
             <LectureList lectures={lectures} goToPayment={goToPayment} />
           }
         />
-        <Route path="/order" element={<OrderList orders={orders} />} />
+        <Route path="/order/*" element={<OrderHistory orders={orders} />} />
         <Route
           path="/payment"
           element={

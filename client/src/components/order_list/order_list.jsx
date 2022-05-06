@@ -2,7 +2,7 @@ import React from "react";
 import OrderItem from "../order_item/order_item";
 import styles from "./order_list.module.css";
 
-const OrderList = ({ orders }) => {
+const OrderList = ({ orders, goToOrderDetails }) => {
   return (
     <div className={styles.container}>
       <h2>주문 내역</h2>
@@ -19,7 +19,11 @@ const OrderList = ({ orders }) => {
         </thead>
         <tbody>
           {orders.map((order) => (
-            <OrderItem key={order.orderId} order={order} />
+            <OrderItem
+              key={order.orderId}
+              order={order}
+              goToOrderDetails={goToOrderDetails}
+            />
           ))}
         </tbody>
       </table>
