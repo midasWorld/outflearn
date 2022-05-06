@@ -25,9 +25,9 @@ const OrderItem = ({ order }) => {
       </td>
       <td className={styles.state}>결제 완료</td>
       <td className={styles.name} onClick={onNameClick}>
-        {order.lectureName}
+        {order.lecture.name}
       </td>
-      <td className={styles.price}>{order.price.toLocaleString()}</td>
+      <td className={styles.price}>{order.lecture.price.toLocaleString()}</td>
       <td>{order.email}</td>
     </tr>
   );
