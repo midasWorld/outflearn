@@ -1,6 +1,8 @@
 package com.midas.outflearn.service.order;
 
+import com.midas.outflearn.dto.order.OrderQueryDto;
 import com.midas.outflearn.model.order.Order;
+import com.midas.outflearn.repository.order.OrderQueryJdbcRepository;
 import com.midas.outflearn.repository.order.OrderRepository;
 import org.springframework.stereotype.Service;
 
@@ -10,9 +12,11 @@ import java.util.List;
 public class OrderService {
 
     private final OrderRepository orderRepository;
+    private final OrderQueryJdbcRepository orderQueryJdbcRepository;
 
-    public OrderService(OrderRepository orderRepository) {
+    public OrderService(OrderRepository orderRepository, OrderQueryJdbcRepository orderQueryJdbcRepository) {
         this.orderRepository = orderRepository;
+        this.orderQueryJdbcRepository = orderQueryJdbcRepository;
     }
 
     public Order create(Order order) {
@@ -21,5 +25,9 @@ public class OrderService {
 
     public List<Order> findAll() {
         return orderRepository.findAll();
+    }
+
+    public List<OrderQueryDto> findAllOrderQueryDto() {
+        return orderQueryJdbcRepository.findAllOrderQueryDto();
     }
 }
