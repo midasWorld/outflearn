@@ -24,20 +24,20 @@ public class OrderQueryJdbcRepository {
     }
 
     public List<OrderQueryDto> findAllOrderQueryDto() {
-        return jdbcTemplate.query("SELECT o.*, l.name AS lecture_name, l.price, v.name AS voucher_name, v.percent\n" +
-            "FROM orders o\n" +
-            "INNER JOIN lectures l ON o.lecture_id = l.lecture_id\n" +
-            "LEFT JOIN vouchers v ON o.voucher_id = v.voucher_id",
+        return jdbcTemplate.query("SELECT o.*, l.name AS lecture_name, l.price, v.name AS voucher_name, v.percent" +
+            " FROM orders o" +
+            " INNER JOIN lectures l ON o.lecture_id = l.lecture_id" +
+            " LEFT JOIN vouchers v ON o.voucher_id = v.voucher_id",
             orderDtoRowMapper);
     }
 
     public Optional<OrderQueryDto> findOrderQueryDtoById(Long orderId) {
         try {
-            return Optional.of(jdbcTemplate.queryForObject("SELECT o.*, l.name AS lecture_name, l.price, v.name AS voucher_name, v.percent\n" +
-                    "FROM orders o\n" +
-                    "INNER JOIN lectures l ON o.lecture_id = l.lecture_id\n" +
-                    "LEFT JOIN vouchers v ON o.voucher_id = v.voucher_id\n" +
-                    "WHERE o.order_id = :orderId",
+            return Optional.of(jdbcTemplate.queryForObject("SELECT o.*, l.name AS lecture_name, l.price, v.name AS voucher_name, v.percent" +
+                    " FROM orders o" +
+                    " INNER JOIN lectures l ON o.lecture_id = l.lecture_id" +
+                    " LEFT JOIN vouchers v ON o.voucher_id = v.voucher_id" +
+                    " WHERE o.order_id = :orderId",
                 Collections.singletonMap("orderId", orderId),
                 orderDtoRowMapper));
         } catch (EmptyResultDataAccessException e) {
