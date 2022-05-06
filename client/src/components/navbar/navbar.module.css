@@ -1,0 +1,28 @@
+@value markerDarkBlue from '../../common/colors.css';
+
+.navbar {
+  display: flex;
+  padding: 0;
+}
+
+.logo {
+  height: 100%;
+  cursor: pointer;
+}
+
+.logo_img {
+  height: 100%;
+}
+
+.menu {
+  list-style: none;
+}
+
+.menu_item {
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.menu_item:hover {
+  color: markerDarkBlue;
+}

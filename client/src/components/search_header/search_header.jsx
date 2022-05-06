@@ -1,7 +1,8 @@
 import styles from "./search_header.module.css";
 import React, { useRef } from "react";
+import Navbar from "../navbar/navbar";
 
-const SearchHeader = ({ onSearch, goToMain }) => {
+const SearchHeader = ({ onSearch, goToMain, goToOrder }) => {
   const inputRef = useRef();
   const handleSearch = () => {
     const value = inputRef.current.value;
@@ -25,12 +26,7 @@ const SearchHeader = ({ onSearch, goToMain }) => {
 
   return (
     <header className={styles.header}>
-      <img
-        className={styles.logo}
-        src="/images/logo.png"
-        alt="logo"
-        onClick={onLogoClick}
-      />
+      <Navbar onLogoClick={onLogoClick} goToOrder={goToOrder} />
       <input
         ref={inputRef}
         className={styles.input}
