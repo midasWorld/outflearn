@@ -4,6 +4,7 @@ import com.midas.outflearn.controller.ApiResponse;
 import com.midas.outflearn.dto.order.OrderQueryDto;
 import com.midas.outflearn.service.order.OrderService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,6 +35,13 @@ public class OrderRestController {
     public ApiResponse<List<OrderQueryDto>> orders() {
         return OK(
             orderService.findAllOrderQueryDto()
+        );
+    }
+
+    @GetMapping("/api/v1/orders/{orderId}")
+    public ApiResponse<OrderQueryDto> order(@PathVariable Long orderId) {
+        return OK(
+            orderService.findOrderQueryDtoById(orderId)
         );
     }
 }

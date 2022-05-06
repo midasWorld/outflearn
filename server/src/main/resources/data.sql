@@ -8,3 +8,6 @@ INSERT INTO vouchers(name, code, percent, status) VALUES ('오늘의 쿠폰', '1
 INSERT INTO vouchers(name, code, percent, status) VALUES ('미래의 쿠폰', '2222-2222', 30, 'UNUSED');
 INSERT INTO vouchers(name, code, percent, status) VALUES ('사용된 쿠폰', '3333-3333', 50, 'USED');
 INSERT INTO vouchers(name, code, percent, status) VALUES ('옛날옛적 쿠폰', '5555-5555', 100, 'USED');
+
+INSERT INTO orders(email, lecture_id, voucher_id, payment_type) VALUES ('test00@gmail.com', 3, 3, 'NAVER_PAY');
+INSERT INTO orders(email, lecture_id, voucher_id, payment_type) VALUES ('test01@gmail.com', 4, 4, 'KAKAO_PAY');

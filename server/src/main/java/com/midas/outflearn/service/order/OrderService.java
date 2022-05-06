@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+import static com.google.common.base.Preconditions.checkArgument;
+
 @Service
 public class OrderService {
 
@@ -29,5 +31,12 @@ public class OrderService {
 
     public List<OrderQueryDto> findAllOrderQueryDto() {
         return orderQueryJdbcRepository.findAllOrderQueryDto();
+    }
+
+    public OrderQueryDto findOrderQueryDtoById(Long orderId) {
+        checkArgument(orderId != null, "orderId must be provided.");
+
+        return orderQueryJdbcRepository.findOrderQueryDtoById(orderId)
+            .orElseThrow(() -> new IllegalArgumentException("Could not found order with orderId=" + orderId));
     }
 }

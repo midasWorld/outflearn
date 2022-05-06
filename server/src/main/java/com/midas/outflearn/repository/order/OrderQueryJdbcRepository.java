@@ -2,12 +2,15 @@ package com.midas.outflearn.repository.order;
 
 import com.midas.outflearn.dto.order.OrderQueryDto;
 import com.midas.outflearn.model.order.PaymentType;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
+import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 import static com.midas.outflearn.util.DateTimeUtils.dateTimeOf;
 
@@ -26,6 +29,20 @@ public class OrderQueryJdbcRepository {
             "INNER JOIN lectures l ON o.lecture_id = l.lecture_id\n" +
             "LEFT JOIN vouchers v ON o.voucher_id = v.voucher_id",
             orderDtoRowMapper);
+    }
+
+    public Optional<OrderQueryDto> findOrderQueryDtoById(Long orderId) {
+        try {
+            return Optional.of(jdbcTemplate.queryForObject("SELECT o.*, l.name AS lecture_name, l.price, v.name AS voucher_name, v.percent\n" +
+                    "FROM orders o\n" +
+                    "INNER JOIN lectures l ON o.lecture_id = l.lecture_id\n" +
+                    "LEFT JOIN vouchers v ON o.voucher_id = v.voucher_id\n" +
+                    "WHERE o.order_id = :orderId",
+                Collections.singletonMap("orderId", orderId),
+                orderDtoRowMapper));
+        } catch (EmptyResultDataAccessException e) {
+            return Optional.empty();
+        }
     }
 
     private RowMapper<OrderQueryDto> orderDtoRowMapper = (resultSet, i) -> {
