@@ -1,6 +1,8 @@
 package com.midas.outflearn.repository.order;
 
+import com.midas.outflearn.dto.order.OrderJoinLectureDto;
 import com.midas.outflearn.dto.order.OrderQueryDto;
+import com.midas.outflearn.dto.order.OrderJoinVoucherDto;
 import com.midas.outflearn.model.order.PaymentType;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.RowMapper;
@@ -27,7 +29,7 @@ public class OrderQueryJdbcRepository {
 
     public List<OrderQueryDto> findAllOrderQueryDto(Optional<String> email) {
         Map<String, Object> params = new HashMap<>();
-        String sql = "SELECT o.*, l.name AS lecture_name, l.price, v.name AS voucher_name, v.percent" +
+        String sql = "SELECT o.*, l.name AS lecture_name, l.price, l.thumbnail_image_url, v.name AS voucher_name, v.percent" +
                         " FROM orders o" +
                         " INNER JOIN lectures l ON o.lecture_id = l.lecture_id" +
                         " LEFT JOIN vouchers v ON o.voucher_id = v.voucher_id";
@@ -42,7 +44,7 @@ public class OrderQueryJdbcRepository {
 
     public Optional<OrderQueryDto> findOrderQueryDtoById(Long orderId) {
         try {
-            return Optional.of(jdbcTemplate.queryForObject("SELECT o.*, l.name AS lecture_name, l.price, v.name AS voucher_name, v.percent" +
+            return Optional.of(jdbcTemplate.queryForObject("SELECT o.*, l.name AS lecture_name, l.price, l.thumbnail_image_url, v.name AS voucher_name, v.percent" +
                     " FROM orders o" +
                     " INNER JOIN lectures l ON o.lecture_id = l.lecture_id" +
                     " LEFT JOIN vouchers v ON o.voucher_id = v.voucher_id" +
@@ -60,11 +62,19 @@ public class OrderQueryJdbcRepository {
         long lectureId = resultSet.getLong("lecture_id");
         String lectureName = resultSet.getString("lecture_name");
         long price = resultSet.getLong("price");
+        String thumbnailImageUrl = resultSet.getString("thumbnail_image_url");
         Long voucherId = resultSet.getObject("voucher_id", Long.class);
         String voucherName = resultSet.getString("voucher_name");
-        long discountPercent = resultSet.getLong("percent");
+        long percent = resultSet.getLong("percent");
         PaymentType paymentType = PaymentType.valueOf(resultSet.getString("payment_type"));
         LocalDateTime createdAt = dateTimeOf(resultSet.getTimestamp("created_at"));
-        return new OrderQueryDto(orderId, email, lectureId, lectureName, price, voucherId, voucherName, discountPercent, paymentType, createdAt);
+        return new OrderQueryDto(
+            orderId,
+            email,
+            new OrderJoinLectureDto(lectureId, lectureName, price, thumbnailImageUrl),
+            new OrderJoinVoucherDto(voucherId, voucherName, percent),
+            paymentType,
+            createdAt
+        );
     };
 }
