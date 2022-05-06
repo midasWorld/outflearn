@@ -1,0 +1,21 @@
+@value markerLightGray, markerSuperLightGray from '../../common/colors.css';
+
+.container {
+  margin-top: 1em;
+}
+
+.orders {
+  width: 100%;
+  border: 1px solid markerLightGray;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid markerLightGray;
+  padding: 1em;
+}
+
+tr:nth-child(even) {
+  background-color: markerSuperLightGray;
+}

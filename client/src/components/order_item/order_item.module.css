@@ -1,0 +1,21 @@
+@value markerSuperLightGray from '../../common/colors.css';
+
+.order:hover {
+  background-color: markerSuperLightGray;
+}
+
+.price {
+  text-align: right;
+}
+
+.id,
+.date,
+.state {
+  text-align: center;
+}
+
+.name {
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
+}
