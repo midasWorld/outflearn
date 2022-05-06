@@ -7,6 +7,7 @@ import com.midas.outflearn.repository.order.OrderRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 import static com.google.common.base.Preconditions.checkArgument;
 
@@ -29,8 +30,8 @@ public class OrderService {
         return orderRepository.findAll();
     }
 
-    public List<OrderQueryDto> findAllOrderQueryDto() {
-        return orderQueryJdbcRepository.findAllOrderQueryDto();
+    public List<OrderQueryDto> findAllOrderQueryDto(Optional<String> email) {
+        return orderQueryJdbcRepository.findAllOrderQueryDto(email);
     }
 
     public OrderQueryDto findOrderQueryDtoById(Long orderId) {

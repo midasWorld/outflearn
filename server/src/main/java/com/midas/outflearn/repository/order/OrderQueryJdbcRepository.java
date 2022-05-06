@@ -9,7 +9,9 @@ import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import static com.midas.outflearn.util.DateTimeUtils.dateTimeOf;
@@ -23,12 +25,19 @@ public class OrderQueryJdbcRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public List<OrderQueryDto> findAllOrderQueryDto() {
-        return jdbcTemplate.query("SELECT o.*, l.name AS lecture_name, l.price, v.name AS voucher_name, v.percent" +
-            " FROM orders o" +
-            " INNER JOIN lectures l ON o.lecture_id = l.lecture_id" +
-            " LEFT JOIN vouchers v ON o.voucher_id = v.voucher_id",
-            orderDtoRowMapper);
+    public List<OrderQueryDto> findAllOrderQueryDto(Optional<String> email) {
+        Map<String, Object> params = new HashMap<>();
+        String sql = "SELECT o.*, l.name AS lecture_name, l.price, v.name AS voucher_name, v.percent" +
+                        " FROM orders o" +
+                        " INNER JOIN lectures l ON o.lecture_id = l.lecture_id" +
+                        " LEFT JOIN vouchers v ON o.voucher_id = v.voucher_id";
+
+        if (email.isPresent()) {
+            sql += " WHERE o.email = :email";
+            params.put("email", email.get());
+        }
+
+        return jdbcTemplate.query(sql, params, orderDtoRowMapper);
     }
 
     public Optional<OrderQueryDto> findOrderQueryDtoById(Long orderId) {
