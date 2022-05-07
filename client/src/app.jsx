@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Route, Routes, useNavigate, useLocation } from "react-router-dom";
 import styles from "./app.module.css";
+import LectureAddForm from "./components/lecture_add_form/lecture_add_form";
 import LectureList from "./components/lecture_list/lecture_list";
 import OrderHistory from "./components/order_history/order_history";
 import Payment from "./components/payment/payment";
@@ -19,6 +20,9 @@ function App({ lecture, voucherService, orderService }) {
   };
   const goToOrder = () => {
     navigate("/order");
+  };
+  const goToLectureAddForm = () => {
+    navigate("/lecture/add");
   };
   const goToMain = () => {
     navigate("/");
@@ -60,6 +64,7 @@ function App({ lecture, voucherService, orderService }) {
         onSearch={search}
         goToMain={goToMain}
         goToOrder={goToOrder}
+        goToLectureAddForm={goToLectureAddForm}
       />
       <Routes>
         <Route
@@ -80,6 +85,7 @@ function App({ lecture, voucherService, orderService }) {
             />
           }
         />
+        <Route path="/lecture/add" element={<LectureAddForm />} />
       </Routes>
     </div>
   );

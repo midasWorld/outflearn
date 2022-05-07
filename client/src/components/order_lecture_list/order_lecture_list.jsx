@@ -33,7 +33,7 @@ const OrderLectureList = ({ lecture, voucher }) => {
         ) : (
           <div className={styles.voucher}>
             <span className={styles.voucher_arrow}>
-              <i class="fa-solid fa-arrow-up-long"></i>
+              <i className="fa-solid fa-arrow-up-long"></i>
             </span>
             적용된 할인 : <span>{voucher.name} 할인 쿠폰</span>
           </div>

@@ -2,7 +2,12 @@ import styles from "./search_header.module.css";
 import React, { useRef } from "react";
 import Navbar from "../navbar/navbar";
 
-const SearchHeader = ({ onSearch, goToMain, goToOrder }) => {
+const SearchHeader = ({
+  onSearch,
+  goToMain,
+  goToOrder,
+  goToLectureAddForm,
+}) => {
   const inputRef = useRef();
   const handleSearch = () => {
     const value = inputRef.current.value;
@@ -26,7 +31,11 @@ const SearchHeader = ({ onSearch, goToMain, goToOrder }) => {
 
   return (
     <header className={styles.header}>
-      <Navbar onLogoClick={onLogoClick} goToOrder={goToOrder} />
+      <Navbar
+        onLogoClick={onLogoClick}
+        goToOrder={goToOrder}
+        goToLectureAddForm={goToLectureAddForm}
+      />
       <input
         ref={inputRef}
         className={styles.input}

@@ -19,3 +19,7 @@ td {
 tr:nth-child(even) {
   background-color: markerSuperLightGray;
 }
+
+tr:hover {
+  background-color: markerSuperLightGray;
+}
