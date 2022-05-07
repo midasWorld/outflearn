@@ -25,6 +25,9 @@ function App({ lecture, voucherService, orderService }) {
     navigate("/lecture/add");
   };
   const goToMain = () => {
+    lecture
+      .all() //
+      .then((lectures) => setLectures(lectures));
     navigate("/");
   };
 
@@ -75,7 +78,10 @@ function App({ lecture, voucherService, orderService }) {
             />
           }
         />
-        <Route path="/lecture/add" element={<LectureAddForm />} />
+        <Route
+          path="/lecture/add"
+          element={<LectureAddForm lecture={lecture} goToPage={goToMain} />}
+        />
       </Routes>
     </div>
   );
