@@ -54,7 +54,7 @@ const Pay = ({ lecture, voucherService, orderService, goToPage }) => {
 
   const searchVoucher = () => {
     if (voucherRef.current.value === "") {
-      alert("바우처 코드를 입력해주세요.");
+      alert("바우처 코드를 입력하세요.");
       return;
     }
 
