@@ -29,7 +29,6 @@ function App({ lecture, voucherService, orderService }) {
   };
 
   const [lectures, setLectures] = useState([]);
-  const [orders, setOrders] = useState([]);
 
   const search = (query) => {
     if (location.pathname !== "/") {
@@ -40,22 +39,10 @@ function App({ lecture, voucherService, orderService }) {
       .then((lectures) => setLectures(lectures));
   };
 
-  const orderSearch = (query) => {
-    orderService
-      .search(query) //
-      .then((orders) => setOrders(orders));
-  };
-
   useEffect(() => {
     lecture
       .all() //
       .then((lectures) => setLectures(lectures));
-  }, []);
-
-  useEffect(() => {
-    orderService
-      .all() //
-      .then((orders) => setOrders(orders));
   }, []);
 
   return (
@@ -74,7 +61,10 @@ function App({ lecture, voucherService, orderService }) {
             <LectureList lectures={lectures} goToPayment={goToPayment} />
           }
         />
-        <Route path="/order/*" element={<OrderHistory orders={orders} />} />
+        <Route
+          path="/order/*"
+          element={<OrderHistory orderService={orderService} />}
+        />
         <Route
           path="/payment"
           element={
