@@ -1,6 +1,38 @@
+@value markerLightGray, markerShadow from '../../common/colors.css';
+
 .container {
   flex-basis: 50%;
-  background: wheat;
-  padding: 1em 3em;
-  margin: 0 auto;
+  padding: 0 3em;
+  margin: 1em auto;
+  max-width: 32em;
+  max-height: 20em;
+  border: 1px solid markerLightGray;
+  box-shadow: 3px 3px 5px 0px markerShadow;
+}
+
+h1 div {
+  float: right;
+}
+
+.origin {
+  font-size: 1.1rem;
+  text-decoration: line-through;
+  text-decoration-style: double;
+  margin-right: 0.5em;
+}
+
+.payment {
+  width: 100%;
+  border: 1px solid markerLightGray;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid markerLightGray;
+  padding: 1em;
+}
+
+tr:nth-child(even) {
+  background-color: markerSuperLightGray;
 }

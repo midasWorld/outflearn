@@ -15,7 +15,7 @@ const OrderDetails = (props) => {
       </h2>
       <div className={styles.container}>
         <OrderLectureList lecture={order.lecture} voucher={order.voucher} />
-        <OrderPayment />
+        <OrderPayment order={order} />
       </div>
     </>
   );
