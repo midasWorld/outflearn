@@ -76,7 +76,7 @@ function App({ lecture, voucherService, orderService }) {
             <Payment
               voucherService={voucherService}
               orderService={orderService}
-              goToMain={goToMain}
+              goToPage={goToOrder}
             />
           }
         />

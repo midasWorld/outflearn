@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import styles from "./pay.module.css";
 
-const Pay = ({ lecture, voucherService, orderService, goToMain }) => {
+const Pay = ({ lecture, voucherService, orderService, goToPage }) => {
   const [amount, setAmount] = useState(lecture.price);
   const [voucher, setVoucher] = useState(null);
   const [payType, setPayType] = useState(null);
@@ -45,7 +45,7 @@ const Pay = ({ lecture, voucherService, orderService, goToMain }) => {
   - 결제방법:${order.paymentType}
   - 결제일시:${order.createdAt}`
     );
-    goToMain();
+    goToPage();
   };
 
   const handleOrderError = (error) => {

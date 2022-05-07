@@ -4,7 +4,7 @@ import Cart from "../cart/cart";
 import Pay from "../pay/pay";
 import styles from "./payment.module.css";
 
-const Payment = ({ voucherService, orderService, goToMain }) => {
+const Payment = ({ voucherService, orderService, goToPage }) => {
   const location = useLocation();
   const lecture = location.state.lecture;
 
@@ -15,7 +15,7 @@ const Payment = ({ voucherService, orderService, goToMain }) => {
         lecture={lecture}
         voucherService={voucherService}
         orderService={orderService}
-        goToMain={goToMain}
+        goToPage={goToPage}
       />
     </div>
   );
