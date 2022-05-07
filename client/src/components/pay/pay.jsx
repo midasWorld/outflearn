@@ -53,6 +53,11 @@ const Pay = ({ lecture, voucherService, orderService, goToPage }) => {
   };
 
   const searchVoucher = () => {
+    if (voucherRef.current.value === "") {
+      alert("바우처 코드를 입력해주세요.");
+      return;
+    }
+
     voucherService
       .search(voucherRef.current.value) //
       .then((voucher) => handleVoucherSuccess(voucher))
