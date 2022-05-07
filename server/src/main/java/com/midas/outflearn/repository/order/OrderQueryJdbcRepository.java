@@ -39,6 +39,8 @@ public class OrderQueryJdbcRepository {
             params.put("email", email.get());
         }
 
+        sql += " ORDER BY o.order_id DESC";
+
         return jdbcTemplate.query(sql, params, orderDtoRowMapper);
     }
 
