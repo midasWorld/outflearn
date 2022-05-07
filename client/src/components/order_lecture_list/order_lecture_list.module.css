@@ -1,6 +1,89 @@
+@value markerLightGray, markerLightYellow, markerGray from '../../common/colors.css';
+
 .container {
   flex-basis: 50%;
-  background: lightblue;
   padding: 1em 3em;
-  margin: 0 auto;
+}
+
+.item {
+  border: 1px solid markerLightGray;
+  box-shadow: 3px 3px 5px 0px markerShadow;
+  border-radius: 0.3em;
+}
+
+.title {
+  background-color: markerWhite;
+  padding: 1em;
+  margin: 0;
+  font-weight: bold;
+}
+
+.lecture {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  padding: 0.5em;
+}
+
+.thumbnail {
+  width: 30%;
+  height: 100%;
+}
+
+.metadata {
+  width: 100%;
+  padding-left: 0.5em;
+}
+
+.name {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 0.2em;
+}
+
+.price {
+  padding: 0.7em 0;
+}
+
+.before_amount,
+.amount {
+  padding-right: 0.5em;
+  font-weight: bold;
+  text-align: right;
+}
+
+.before_amount {
+  text-decoration: line-through;
+  color: markerGray;
+  margin: 0.3em 0;
+}
+
+.amount {
+  font-size: 1.1rem;
+  margin: 0.3em 0;
+}
+
+.before_amount::before,
+.amount::before {
+  content: "₩";
+}
+
+.voucher {
+  padding: 0.4em;
+  background: markerLightYellow;
+  border-radius: 0 0 0.3em 0.3em;
+  font-size: 0.9rem;
+}
+
+.fa-arrow-up-long {
+  margin: 1em;
+}
+
+.voucher_arrow {
+  margin: 1em;
+}
+
+.voucher span {
+  font-weight: bold;
 }

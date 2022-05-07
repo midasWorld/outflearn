@@ -1,4 +1,15 @@
 @value mediaQuery from '../../common/size.css';
+@value markerGray from '../../common/colors.css';
+
+h2 {
+  text-align: center;
+  color: #424242;
+  margin-top: 1em;
+}
+
+h2 span {
+  font-size: 1rem;
+}
 
 .container {
   height: 80vh;
