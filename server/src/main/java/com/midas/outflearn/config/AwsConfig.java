@@ -9,60 +9,60 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties(prefix = "cloud.aws.s3")
 public class AwsConfig {
 
-    private String accessKey;
-    private String secretKey;
-    private String region;
-    private String url;
-    private String bucketName;
+	private String accessKey;
+	private String secretKey;
+	private String region;
+	private String url;
+	private String bucketName;
 
-    public String getAccessKey() {
-        return accessKey;
-    }
+	public String getAccessKey() {
+		return accessKey;
+	}
 
-    public void setAccessKey(String accessKey) {
-        this.accessKey = accessKey;
-    }
+	public void setAccessKey(String accessKey) {
+		this.accessKey = accessKey;
+	}
 
-    public String getSecretKey() {
-        return secretKey;
-    }
+	public String getSecretKey() {
+		return secretKey;
+	}
 
-    public void setSecretKey(String secretKey) {
-        this.secretKey = secretKey;
-    }
+	public void setSecretKey(String secretKey) {
+		this.secretKey = secretKey;
+	}
 
-    public String getRegion() {
-        return region;
-    }
+	public String getRegion() {
+		return region;
+	}
 
-    public void setRegion(String region) {
-        this.region = region;
-    }
+	public void setRegion(String region) {
+		this.region = region;
+	}
 
-    public String getUrl() {
-        return url;
-    }
+	public String getUrl() {
+		return url;
+	}
 
-    public void setUrl(String url) {
-        this.url = url;
-    }
+	public void setUrl(String url) {
+		this.url = url;
+	}
 
-    public String getBucketName() {
-        return bucketName;
-    }
+	public String getBucketName() {
+		return bucketName;
+	}
 
-    public void setBucketName(String bucketName) {
-        this.bucketName = bucketName;
-    }
+	public void setBucketName(String bucketName) {
+		this.bucketName = bucketName;
+	}
 
-    @Override
-    public String toString() {
-        return new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE)
-            .append("accessKey", accessKey)
-            .append("secretKey", secretKey)
-            .append("region", region)
-            .append("url", url)
-            .append("bucketName", bucketName)
-            .toString();
-    }
+	@Override
+	public String toString() {
+		return new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE)
+			.append("accessKey", accessKey)
+			.append("secretKey", secretKey)
+			.append("region", region)
+			.append("url", url)
+			.append("bucketName", bucketName)
+			.toString();
+	}
 }
