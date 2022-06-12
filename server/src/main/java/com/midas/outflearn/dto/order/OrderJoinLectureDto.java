@@ -7,13 +7,13 @@ public class OrderJoinLectureDto {
 	private final Long lectureId;
 	private final String name;
 	private final long price;
-	private final String thumbnail_image_url;
+	private final String thumbnailImageUrl;
 
-	public OrderJoinLectureDto(Long lectureId, String name, long price, String thumbnail_image_url) {
+	public OrderJoinLectureDto(Long lectureId, String name, long price, String thumbnailImageUrl) {
 		this.lectureId = lectureId;
 		this.name = name;
 		this.price = price;
-		this.thumbnail_image_url = thumbnail_image_url;
+		this.thumbnailImageUrl = thumbnailImageUrl;
 	}
 
 	public Long getLectureId() {
@@ -28,8 +28,8 @@ public class OrderJoinLectureDto {
 		return price;
 	}
 
-	public String getThumbnail_image_url() {
-		return thumbnail_image_url;
+	public String getThumbnailImageUrl() {
+		return thumbnailImageUrl;
 	}
 
 	@Override
@@ -38,7 +38,7 @@ public class OrderJoinLectureDto {
 			.append("lectureId", lectureId)
 			.append("name", name)
 			.append("price", price)
-			.append("thumbnail_image_url", thumbnail_image_url)
+			.append("thumbnailImageUrl", thumbnailImageUrl)
 			.toString();
 	}
 }
